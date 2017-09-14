@@ -5,6 +5,7 @@ import {
   Text,
   View
 } from 'react-native'
+import {connect} from 'react-redux'
 
 import { Body, Button, Container, Header, Title } from "native-base"
 import styles from './styles'
@@ -13,11 +14,12 @@ import Router from '../../router'
 class Profile extends Component {
   render() {
     const props = this.props
+    console.log("this store",this.props)
     // const { navigate } = this.props.navigation;
     return (
       <Container>
         <Header>
-          <Title><Text>Header</Text></Title>
+          <Title><Text>{props.title.value}</Text></Title>
         </Header>
         <View style={styles.container}>
           <Button onPress = {() => Router.navigate(props,'Home')}>
@@ -38,9 +40,14 @@ class Profile extends Component {
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+    ...state
+  }
+}
 
 export default {
   key: 'Profile',
-  component: Profile,
+  component: connect(mapStateToProps)(Profile),
   path: "/profile"
 }

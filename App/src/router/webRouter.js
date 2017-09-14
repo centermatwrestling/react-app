@@ -41,6 +41,6 @@ const WebRouter = (registry, store) => {
 export default {
   register: WebRouter,
   navigate: (props, location) => {
-    props.dispatch(push(location === 'Home' ? '/' : location))
+    props.history.push(location === 'Home' ? '/' : location)
   }
 }

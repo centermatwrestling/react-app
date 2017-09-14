@@ -8,6 +8,8 @@ import {
 import {connect} from 'react-redux'
 
 import { Body, Button, Container, Header, Title } from "native-base"
+
+import {CMWHeader} from '../../components'
 import styles from './styles'
 
 import Router from '../../router'
@@ -21,7 +23,7 @@ class Home extends Component {
     return (
       <Container>
         <Header>
-          <Title><Text>Header</Text></Title>
+          <Title><Text>{props.title.value}</Text></Title>
         </Header>
         <View style={styles.container}>
           <Button onPress = {() => Router.navigate(props, 'Profile')}>
@@ -44,7 +46,6 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('nb',state)
   return {
     ...state
   }
@@ -52,6 +53,6 @@ const mapStateToProps = state => {
 
 export default {
   key: 'Home',
-  component: connect()(Home),
+  component: connect(mapStateToProps)(Home),
   path: "/"
 }
