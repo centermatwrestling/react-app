@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "317768110577",
+    "firebase_url": "https://axial-reference-542.firebaseio.com",
+    "project_id": "axial-reference-542",
+    "storage_bucket": "axial-reference-542.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317768110577:android:92239bf3420fe21f",
+        "android_client_info": {
+          "package_name": "com.centermatwrestling.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317768110577-bndijabvgs8i843gsarlbu9amlng9gpl.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "317768110577-t5hd13elt91tjj7td6joqbaodct4qebc.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "317768110577-46g71a43htrn5i9r11ar3r0f09olldud.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "317768110577.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJyQ0bPM3J3aM57AbJ_7UKm21u4hdIsLo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
