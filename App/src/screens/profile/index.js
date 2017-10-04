@@ -11,33 +11,15 @@ import { Body, Button, Container, Header, Title } from "native-base"
 import styles from './styles'
 import Router from '../../router'
 
+import {GenericLayout} from '../'
+
 class Profile extends Component {
   render() {
-    const props = this.props
-    console.log("this store",this.props)
-    // const { navigate } = this.props.navigation;
-    return (
-      <Container>
-        <Header>
-          <Title><Text>{props.title.value}</Text></Title>
-        </Header>
-        <View style={styles.container}>
-          <Button onPress = {() => Router.navigate(props,'Home')}>
-            <Text>Chat</Text>
-          </Button>
-          <Text style={styles.welcome}>
-          Welcome to React Native Profile!
-          </Text>
-          <Text style={styles.instructions}>
-          To get started, edit index.android.js
-          </Text>
-          <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-          </Text>
-        </View>
-      </Container>
-    )
+    return GenericLayout({
+      props: this.props,
+      title: "Profile",
+      navigate: "Home",
+    })
   }
 }
 const mapStateToProps = state => {

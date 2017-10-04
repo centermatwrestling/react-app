@@ -1,3 +1,6 @@
+import sendNotification from './notificationAction'
+import fetchScoreBoard from './scoreBoardAction'
+
 const setTitle = (title) => {
   return {
     type:'setTitle',
@@ -15,7 +18,10 @@ const loadIp = () => {
   }
 }
 
+
 export {
   setTitle,
-  loadIp
+  loadIp,
+  fetchScoreBoard,
+  sendNotification
 }

@@ -23,6 +23,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'react-native-fcm': 'empty-module',
       'react-native': 'react-native-web',
       		'native-base' : 'native-base-web',
       'react-router-native': 'react-router-dom',
