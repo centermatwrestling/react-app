@@ -6,10 +6,15 @@ import {
   View
 } from 'react-native'
 
-import { Body, Button, Container, Header, Title } from "native-base"
+import { Body, Button, Container, Header, Title, Picker, Item } from "native-base"
 import styles from './styles'
 
 const logoUri = "https://devcentermat.github.io/cdn_ssl/images/logo.png"
+
+let language = "key0"
+const onValueChange2 = (value: string) => {
+  language = value
+}
 
 const CMWHeader = ({
   title

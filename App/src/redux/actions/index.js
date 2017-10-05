@@ -1,5 +1,7 @@
 import sendNotification from './notificationAction'
 import fetchScoreBoard from './scoreBoardAction'
+import setEvent from './eventAction'
+import setTeam from './teamAction'
 
 const setTitle = (title) => {
   return {
@@ -21,6 +23,8 @@ const loadIp = () => {
 
 export {
   setTitle,
+  setEvent,
+  setTeam,
   loadIp,
   fetchScoreBoard,
   sendNotification

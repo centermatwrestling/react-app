@@ -4,7 +4,8 @@ import {
 } from 'react-native'
 import {
   StackNavigator,
-  addNavigationHelpers
+  addNavigationHelpers,
+  NavigationActions
 } from 'react-navigation'
 
 import {Provider, connect} from 'react-redux'
@@ -46,5 +47,8 @@ export default {
   register: NativeRouter,
   navigate: (props, location) => {
     props.navigation.navigate(location)
+  },
+  back: (props) => {
+    props.navigation.dispatch(NavigationActions.back())
   }
 }

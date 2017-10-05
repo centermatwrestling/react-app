@@ -5,12 +5,18 @@ import {setTitle, loadIp} from '../redux/actions'
 
 const Router = window.document ? WebRouter : NativeRouter
 
+const locations = []
+
+const navigate = (props, location) => {
+  locations.push(location)
+  Router.navigate(props, location)
+}
+
 const RouterWrapper = {
   ...Router,
-  navigate: (props, location) => {
-    props.dispatch(setTitle(location))
-    props.dispatch(loadIp())
-    Router.navigate(props, location)
+  navigate,
+  back: (props) => {
+    Router.back(props)
   }
 }
 

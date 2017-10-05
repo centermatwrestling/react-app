@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
   logo: {
     height: 27,
     width: 63
+  },
+  picker: {
+    flex: 1,
+    width:'100%',
+    color: 'white'
   }
 })
 

@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
   },
   cardItem: {
     display: 'flex',
-    flex: 1,
     flexDirection: 'column',
     flexWrap:'nowrap'
   },

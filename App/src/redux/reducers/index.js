@@ -1,6 +1,8 @@
 import {combineReducers} from 'redux'
 import notifications from './notificationReducer'
 import scoreboard from './scoreBoardReducer'
+import eventPayload from './eventReducer'
+import teamPayload from './teamReducer'
 
 const title = (state = { value: 'Home'}, action) => {
   if(action.type === 'setTitle') {
@@ -12,7 +14,9 @@ const title = (state = { value: 'Home'}, action) => {
 }
 
 export default combineReducers({
+  eventPayload,
   title,
   notifications,
-  scoreboard
+  scoreboard,
+  teamPayload
 })

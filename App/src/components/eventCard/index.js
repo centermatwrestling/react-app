@@ -7,10 +7,27 @@ import {
 } from 'react-native'
 
 import { Button, Container, Card, CardItem,
-  Content, Header, Icon, Title } from "native-base"
+  Content, Header, Icon, Title, Thumbnail } from "native-base"
 import {connect} from 'react-redux'
+import {setEvent, setTeam} from '../../redux/actions'
 
 import styles from './styles'
+
+import Router from '../../router'
+
+const onSwap = (props, event) => {
+  alert('swap')
+}
+
+const onOpen = (props, event) => {
+  props.dispatch(setEvent(event))
+  Router.navigate(props, 'Event')
+}
+
+const onTeam = (props, team) => {
+  props.dispatch(setTeam(team))
+  Router.navigate(props, 'Team')
+}
 
 class EventCard extends Component {
 
@@ -23,7 +40,9 @@ class EventCard extends Component {
             <Text>{event.date}</Text>
           </View>
           <View style={styles.icon}>
-            <Button iconRight transparent >
+            <Button iconRight transparent
+              onPress={() => onSwap(this.props, event)}
+            >
               <Icon
                 color="black"
                 name={window.document ? 'arrow-swap' : 'swap'}
@@ -31,7 +50,9 @@ class EventCard extends Component {
             </Button>
           </View>
           <View style={styles.icon}>
-            <Button iconRight transparent >
+            <Button iconRight transparent
+              onPress={() => onOpen(this.props, event)}
+            >
               <Icon
                 color="black"
                 name={window.document ? 'android-open' : 'open'}
@@ -45,10 +66,14 @@ class EventCard extends Component {
         {event.teams.map((team) => (
           <View key={team.name} style={styles.row}>
             <View style={styles.logoContainer} >
-              <Image
-                source={{uri:team.logo}}
-                style={styles.logo}
-              />
+              <Button iconRight transparent
+                onPress={() => onTeam(this.props, team)}
+              >
+                <Thumbnail
+                  source={{uri:team.logo}}
+                  style={styles.logo}
+                />
+              </Button>
             </View>
             <View style={styles.name}>
               <Text>{team.name}</Text>
