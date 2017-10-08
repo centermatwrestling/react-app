@@ -2,6 +2,8 @@ import sendNotification from './notificationAction'
 import fetchScoreBoard from './scoreBoardAction'
 import setEvent from './eventAction'
 import setTeam from './teamAction'
+import fetchBouts from './boutAction'
+import fetchTeamMember from './teamMemberAction'
 
 const setTitle = (title) => {
   return {
@@ -19,13 +21,16 @@ const loadIp = () => {
       })
   }
 }
-
+const url = 'http://192.168.2.133:8888'
 
 export {
+  url,
   setTitle,
   setEvent,
   setTeam,
+  fetchTeamMember,
   loadIp,
   fetchScoreBoard,
+  fetchBouts,
   sendNotification
 }

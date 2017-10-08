@@ -1,24 +1,18 @@
 import {
   StyleSheet
-} from 'react-native';
+} from 'react-native'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+const styles = {
+  row: {
+    flex:1,
+    flexDirection:'row',
+    marginTop:30
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  rowItem: {
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+  rowItemHeader: {
+    fontWeight:'bold'
+  }
+}
 
 export default styles

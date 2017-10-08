@@ -5,12 +5,14 @@ import {
 const styles = StyleSheet.create({
   card: {
     margin:20,
-    height:'100%'
+    height:'100%',
+    maxHeight:230
   },
   cardItem: {
     display: 'flex',
     flexDirection: 'column',
-    flexWrap:'nowrap'
+    flexWrap:'nowrap',
+    height:'100%'
   },
   date: {
     width:'100%',

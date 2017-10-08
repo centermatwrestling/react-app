@@ -11,34 +11,16 @@ import { Body, Button, Container, Header, ScrollableTab, Spinner, Title, Tab, Ta
 import {fetchScoreBoard} from '../../../redux/actions'
 import styles from './styles'
 import {EventCard} from '../../../components'
+import {mapMatchups} from '../../../utils/mapper'
 
 import Router from '../../../router'
 
-const date = new Date(1512928800000)
+const date = new Date('11/19/2016')
 const noResults = `No Results for ${date.toISOString().slice(0, 10)}`
 
 const generateContent = ({navigation}, matchups, loading) => {
   if(matchups) {
-    const events = matchups.map(matchup => (
-      {
-        id: matchup.id,
-        name: matchup.name,
-        date: new Date(matchup.startDate).toISOString().slice(0, 10),
-        status: matchup.status,
-        teams: [matchup.team, matchup.team2].map((team) => {
-          if (team){
-            return {
-              id: team.id,
-              color: team.color.split(',')[0],
-              name: team.name,
-              score: team.score,
-              logo: `https://devcentermat.github.io/cdn_ssl/images/team/team${team.id}.png`
-            }
-          }
-          return {}
-        })
-      }
-    ))
+    const events = mapMatchups(matchups)
     return <Tab>
       {
         events.map((event) => (

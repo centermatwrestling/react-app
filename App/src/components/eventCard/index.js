@@ -9,7 +9,7 @@ import {
 import { Button, Container, Card, CardItem,
   Content, Header, Icon, Title, Thumbnail } from "native-base"
 import {connect} from 'react-redux'
-import {setEvent, setTeam} from '../../redux/actions'
+import {setEvent, setTeam, fetchBouts} from '../../redux/actions'
 
 import styles from './styles'
 
@@ -20,6 +20,7 @@ const onSwap = (props, event) => {
 }
 
 const onOpen = (props, event) => {
+  props.dispatch(fetchBouts(event))
   props.dispatch(setEvent(event))
   Router.navigate(props, 'Event')
 }
@@ -34,56 +35,51 @@ class EventCard extends Component {
   render() {
     const event = this.props.event
     return <Card style={styles.card}>
-      <CardItem style={styles.cardItem}>
-        <View style={styles.dateBar}>
-          <View style={styles.date}>
-            <Text>{event.date}</Text>
-          </View>
-          <View style={styles.icon}>
-            <Button iconRight transparent
-              onPress={() => onSwap(this.props, event)}
-            >
-              <Icon
-                color="black"
-                name={window.document ? 'arrow-swap' : 'swap'}
-              />
-            </Button>
-          </View>
-          <View style={styles.icon}>
-            <Button iconRight transparent
-              onPress={() => onOpen(this.props, event)}
-            >
-              <Icon
-                color="black"
-                name={window.document ? 'android-open' : 'open'}
-              />
-            </Button>
-          </View>
-        </View>
-        <View style={styles.status}>
-          <Text>{event.status}</Text>
-        </View>
-        {event.teams.map((team) => (
-          <View key={team.name} style={styles.row}>
-            <View style={styles.logoContainer} >
+      <CardItem >
+        <Button iconRight transparent
+          style={styles.cardItem}
+          onPress={() => onOpen(this.props, event)}
+        >
+          <View style={styles.dateBar}>
+            <View style={styles.date}>
+              <Text>{event.date}</Text>
+            </View>
+            <View style={styles.icon}>
               <Button iconRight transparent
-                onPress={() => onTeam(this.props, team)}
+                onPress={() => onSwap(this.props, event)}
               >
-                <Thumbnail
-                  source={{uri:team.logo}}
-                  style={styles.logo}
+                <Icon
+                  color="black"
+                  name={window.document ? 'arrow-swap' : 'swap'}
                 />
               </Button>
             </View>
-            <View style={styles.name}>
-              <Text>{team.name}</Text>
-            </View>
-            <View style={styles.score}>
-              <Text>{team.score}</Text>
-            </View>
           </View>
-        )
-        )}
+          <View style={styles.status}>
+            <Text>{event.status}</Text>
+          </View>
+          {event.teams.map((team) => (
+            <View key={team.name} style={styles.row}>
+              <View style={styles.logoContainer} >
+                <Button iconRight transparent
+                  onPress={() => onTeam(this.props, team)}
+                >
+                  <Thumbnail
+                    source={{uri:team.logo}}
+                    style={styles.logo}
+                  />
+                </Button>
+              </View>
+              <View style={styles.name}>
+                <Text>{team.name}</Text>
+              </View>
+              <View style={styles.score}>
+                <Text>{team.score}</Text>
+              </View>
+            </View>
+          )
+          )}
+        </Button>
       </CardItem>
     </Card>
   }

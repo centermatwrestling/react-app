@@ -33,6 +33,8 @@ const TeamHeader = ({
   title,
   dispatch,
   teams,
+  showName,
+  name,
   navigation
 }) => {
   const team = teams[0]
@@ -63,6 +65,7 @@ const TeamHeader = ({
             style={styles.logo}
           />
         </Button>
+        <Text style={showName || name ? {color:'white'} : {display: 'none'}}>{name ? name : team.name}</Text>
       </View>
       <View style={team2 ? {
         ...styles.innerds,

@@ -1,8 +1,10 @@
+import {mapTeam} from '../../utils/mapper'
+
 export default (state={}, action) => {
-  if (action.type === 'team') {
+  if (action.type === 'teamPayload') {
     return {
-      ...state,
-      team: action.value
+      ...action.value,
+      team: mapTeam(action.value.team)
     }
   }
   return state
