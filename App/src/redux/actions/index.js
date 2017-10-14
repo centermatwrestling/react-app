@@ -4,6 +4,7 @@ import setEvent from './eventAction'
 import setTeam from './teamAction'
 import fetchBouts from './boutAction'
 import fetchTeamMember from './teamMemberAction'
+import {fetchSearchResults, setSearchResults} from './searchAction'
 
 const setTitle = (title) => {
   return {
@@ -22,15 +23,18 @@ const loadIp = () => {
   }
 }
 const url = 'http://192.168.2.133:8888'
+// const url = 'https://app.centermatwrestling.com'
 
 export {
   url,
   setTitle,
   setEvent,
   setTeam,
+  setSearchResults,
   fetchTeamMember,
   loadIp,
   fetchScoreBoard,
   fetchBouts,
+  fetchSearchResults,
   sendNotification
 }

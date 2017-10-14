@@ -10,6 +10,10 @@ import {
 
 import {Provider, connect} from 'react-redux'
 
+import {Drawer,Text} from 'native-base'
+
+import SideBar from '../screens/sideBar'
+
 const NativeRouter = (registry, store) => {
 
   const AppNavigator = StackNavigator(_.keyBy(registry, (item) => {
@@ -27,7 +31,7 @@ const NativeRouter = (registry, store) => {
   }
 
   const mapStateToProps = (state = {}) => ({
-    nav: state.nav
+    ...state
   })
 
   const AppWithNavigationState = connect(mapStateToProps)(App)
@@ -36,7 +40,13 @@ const NativeRouter = (registry, store) => {
     render() {
       return (
         <Provider store={store}>
-          <AppWithNavigationState />
+          <Drawer
+            ref={(ref) => { store.dispatch({type:'drawer',value:ref}) }}
+            content={<SideBar  />}
+            onClose={() => store.dispatch({type:'closeDrawer'})} >
+
+            <AppWithNavigationState />
+          </Drawer>
         </Provider>
       )
     }

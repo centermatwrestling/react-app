@@ -62,7 +62,7 @@ const generateBouts = (props, {id, bouts=[]}) => {
           <Text style={{
             ...styles.rowItem,
             width:110
-          }}>{bout.opponentMember.name}</Text>
+          }}>{bout.opponentMember.id === id ? _.get(bout,'opponent2Member.name','Unknown') : bout.opponentMember.name}</Text>
           <Text style={{
             ...styles.rowItem,
             width:30

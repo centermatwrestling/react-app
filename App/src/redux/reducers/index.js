@@ -4,6 +4,8 @@ import scoreboard from './scoreBoardReducer'
 import eventPayload from './eventReducer'
 import teamPayload from './teamReducer'
 import teamMember from './teamMemberReducer'
+import drawer from './drawerReducer'
+import search from './searchReducer'
 
 const title = (state = { value: 'Home'}, action) => {
   if(action.type === 'setTitle') {
@@ -20,5 +22,7 @@ export default combineReducers({
   notifications,
   scoreboard,
   teamPayload,
-  teamMember
+  teamMember,
+  search,
+  drawer
 })

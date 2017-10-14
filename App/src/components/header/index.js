@@ -6,38 +6,36 @@ import {
   View
 } from 'react-native'
 
-import { Body, Button, Container, Header, Title, Picker, Item } from "native-base"
+import { Body, Button, Container, Header, Title, Left, Picker, Item, Icon } from "native-base"
 import styles from './styles'
 
-const logoUri = "https://devcentermat.github.io/cdn_ssl/images/logo.png"
+export const logoUri = "https://devcentermat.github.io/cdn_ssl/images/logo.png"
 
-let language = "key0"
-const onValueChange2 = (value: string) => {
-  language = value
+const openDrawer = ({dispatch}) => {
+  dispatch({type:'openDrawer'})
 }
 
 const CMWHeader = ({
+  props,
   title
 }) => (
   <Header
     iosBarStyle="light-content"
     style={styles.header}
   >
-    {
-      window.document
-        ?
-        <Image
-          source={{uri:logoUri}}
-          style={styles.logo}
-        />
-        :
-        <Body>
-          <Image
-            source={{uri:logoUri}}
-            style={styles.logo}
-          />
-        </Body>
-    }
+    <Left style={styles.left}>
+      <Button transparent
+        onPress={() => openDrawer(props)}
+      >
+        <Icon name='menu'/>
+      </Button>
+    </Left>
+    <Body>
+      <Image
+        source={{uri:logoUri}}
+        style={styles.logo}
+      />
+    </Body>
   </Header>
 )
 

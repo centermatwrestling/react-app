@@ -12,5 +12,4 @@ const registry = _.filter(_.mapValues(screens, (screen) => {
     ...screen
   }
 }), 'component')
-console.log("store", store)
 Router.register(registry, store)

@@ -27,7 +27,7 @@ const GenericLayout = ({
   title
 }) => (
   <Container>
-    {header ? header : CMWHeader({title})}
+    {header ? header : CMWHeader({title,props})}
     <View style={styles.container}>
       <Content >
         {content}
