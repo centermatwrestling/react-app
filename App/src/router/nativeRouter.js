@@ -14,6 +14,8 @@ import {Drawer,Text} from 'native-base'
 
 import SideBar from '../screens/sideBar'
 
+import firebase from '../firebase'
+
 const NativeRouter = (registry, store) => {
 
   const AppNavigator = StackNavigator(_.keyBy(registry, (item) => {
